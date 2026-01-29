@@ -15,7 +15,7 @@ public class Bit_maiplation {
         if((n & bitmask)==0){
             System.out.println(ith_bit+"th bit of "+n+" is 0");
         }else{
-            System.out.println(ith_bit+"th bit of "+n+"is 0");
+            System.out.println(ith_bit+"th bit of "+n+"is 1");
         }
     }
     public static int set_ith_bit(int n , int i){
@@ -45,6 +45,7 @@ public class Bit_maiplation {
         int bitmask = a|b ;
         return n&bitmask;
     }
+
     public static boolean num_is_power_of_two(int n ){
         if((n&(n-1))==0){
             return true;

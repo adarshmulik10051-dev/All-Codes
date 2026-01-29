@@ -22,13 +22,33 @@ public class Recursion_PQ {
         System.out.print(digit[lastdigit]+" ");
 
     }
-    public static void toh(int n , int  A,int B, int C){//move n disk from A TO C using B
+    public static void toh(int n , int  A,int C, int B){//move n disk from A TO C using B
         if(n==0){
             return ;
         }
         toh(n-1,A,B,C);
         System.out.println("move"+n+"th disk from"+A+"to"+C);
         toh(n-1,B,C,A);
+    }
+    public static int countsub(String str , int si, int ei){
+        if(si>ei){
+            return 0;
+        }
+        if(si==ei){
+            return  1;
+        }
+        int firstLremove = countsub(str,si+1,ei);
+
+        int lastLremove =countsub(str,si,ei-1);
+
+        int firstlastLremove= countsub(str,si+1,ei-1);//common sub string in both
+
+        int ans = firstLremove+lastLremove-firstlastLremove;
+
+        if(str.charAt(si)==str.charAt(ei)){
+            ans++;
+        }
+        return ans ;
     }
     public static void main(String args[]){
 //      1) count indices
@@ -38,7 +58,11 @@ public class Recursion_PQ {
 //       2) number to digit
 //        printdigit(1234);
 
-        toh(3,10,20,30);
+//       toh(3,10,30,20);
+        String str = "abcab";
+        int ei =str.length()-1;
+        int ans=countsub(str,0,ei);
+        System.out.println(ans);
 
 
     }

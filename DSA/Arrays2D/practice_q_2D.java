@@ -39,7 +39,7 @@ public class practice_q_2D {
     }
     public static void main(String urgs[]){
         int matrix [][]={{4,7,8},{8,8,7}};
-
+//         countfor key
 //        int key =1;
 //        System.out.println("count is:"+count(matrix,key));
 
