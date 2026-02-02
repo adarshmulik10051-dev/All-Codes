@@ -33,7 +33,7 @@ public static void print(int nums[]){
 }
     public static void main(String args[]){
         int nums[] ={1,2,3,4,5,6,7};
-        int d = 3;
+        int d = 2;
         left_rotate_by_d(nums,d);
         print(nums);
     }
