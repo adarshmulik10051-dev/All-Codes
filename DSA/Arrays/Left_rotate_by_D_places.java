@@ -8,10 +8,10 @@ public class Left_rotate_by_D_places {
          for(int i = 0 ; i < D ; i++){//store d place in temp array
              temp[i]=array[i];
          }
-         for(int i = D;i < n ; i++){
+         for(int i = D;i < n ; i++){//store d to n in first pos
              array[i-D]=array[i];
          }
-         for(int i = n-D;i<n ;i++){
+         for(int i = n-D;i<n ;i++){// store d to next pos from temp
              array[i]=temp[i-(n-D)];
          }
          return array;
@@ -22,7 +22,7 @@ public class Left_rotate_by_D_places {
         }
     }
     public static void main(String args[]){
-        int array[] = {1,2,3,4,5,6,7};
+        int array[] = {3};
         int D =3;
         int n = array.length;
         Left_rotate_by_d(array,D,n);
