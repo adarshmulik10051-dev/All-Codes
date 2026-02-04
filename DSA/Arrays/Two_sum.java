@@ -19,7 +19,7 @@ public class Two_sum {
     }
     //when only return  yes or no
     public static boolean two_sum_without_index(int nums[],int key){
-        Arrays.sort(nums);
+        Arrays.sort(nums);//sort first
         int left = 0 ;
          int right = nums.length-1;
         while(left<right){
