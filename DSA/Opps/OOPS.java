@@ -1,4 +1,6 @@
+package DSA.Opps;
 public class OOPS {
+
     public static void main (String args[] ){
 
         Bank_Account MyAcc = new Bank_Account();
@@ -29,3 +31,4 @@ class pen{
         this.tip = newtip;
     }
 }
+
