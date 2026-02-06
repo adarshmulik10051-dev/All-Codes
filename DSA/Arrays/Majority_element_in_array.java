@@ -18,8 +18,6 @@ public class Majority_element_in_array {
                 count--;
             }
         }
-
-
         // the loop used for element cheak & increas count in full array
         // cheak the stored element is maj element
         int cnt= 0;
