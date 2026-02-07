@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Forms in html</title>
+    </head>
+    <body>
+        <!--1. form tag can be created by <form>-->
+        <form action="/server">
+        <!--2.action attribute used to define what action taken when form is submitted-->
+        <!--3.Input element in form using type attributes-->
+        Sample input: 
+        <input>
+        <br>
+        Enter Text:
+        <input type="text">
+        <br>
+        Enter Number:
+        <input type="number">
+        <br>
+        Set Password:
+        <input type="password">
+        <br>
+        Set Time:
+        <input type="time">
+        <br>
+        Choose color:
+        <input type="color">
+        <br>
+        Set Date:
+        <input type="date">
+        <br>
+        <input type="button">
+        <br>
+        <!--And many more.......-->
+        <!--2 placeholder attribute: it is used to in box show username/passwordlike -->
+    
+        <input type="text" placeholder="Enter user name">
+        <br>
+        <input type="password" placeholder="set password">
+        <br>
+
+        <!--3. label elemnt:this represent caption for an item &it used to made connection bet type -->
+        <label>
+            Enter username:
+            <input type="text" placeholder="Enter username">
+        </label>
+        <!--classical approch of Lable-->
+        <div>
+            <label for="username">Enter username:</label>
+            <input type="text" placeholder="Enter usename" id="username">
+        </div>
+        <div>
+            <label for="age">Enter a age </label>
+            <input type="number" placeholder="age" id="age">
+        </div>
+    
+
+
+
+
+       </form>
+    </body>
+</html>
