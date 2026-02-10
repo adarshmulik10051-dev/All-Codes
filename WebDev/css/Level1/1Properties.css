@@ -1,0 +1,19 @@
+h1{
+    /* color property: it is used to set color to foreground */
+    /* background-color properties:*/
+    color:white;
+    background-color:orange;
+}
+
+
+p{
+    color:red;
+    background-color:black;
+
+}
+
+
+button{
+    color:gold;
+    background-color:red;
+}
