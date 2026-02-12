@@ -1,0 +1,59 @@
+/* 1.Universal selector: ittt can apply all of the part of code*/
+* {
+    font-family: "Courier New";
+    
+}
+
+/*2. Element selector: it can be apply only selcted element*/
+h1{
+    color:#b92b27;
+}
+
+/**/
+h3{
+    color:purple;
+}
+
+/*3.Id-selector: it can be applied only for choosed ID it is case-sensentive partt*/
+#login{
+    background-color:white;
+
+}
+#signup{
+    background-color: #b92b27;
+    color:white;
+}
+/* Class selector: it can be select a specific class that you can give class name & use '.' operator*/
+.upvote{
+    background-color:aqua;
+}
+/*Descendant selector:it can work for parent child type and the work only selected child part ex-div->p*/
+
+p a {
+    color: yellow;
+    background-color:brown;
+}
+
+nav ul li a {
+   
+ color: hotpink;
+}
+/* sibling combnator: it is the same level element combining p next h3 asa denote karta. p la khihi karnar nhi  */
+p + h3{
+    text-decoration: underline;
+}
+.upvote+button{
+    background-color:rgb(156, 243, 25);
+}
+/* parent child : you can select only current child not skip middle element*/
+div>input{
+    background-color: blanchedalmond;
+    
+}
+/*  attribute selector: you can change properties based on type and value aslo */
+input[type="password"]{
+    color:crimson;
+}
+input[type="text"]{
+    color:crimson;
+}
