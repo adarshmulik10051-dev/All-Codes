@@ -57,3 +57,20 @@ input[type="password"]{
 input[type="text"]{
     color:crimson;
 }
+/* pseudo class:*/
+/* 1.hover: it can used when you have change color of that specific p,button,element when carser on it */
+button:hover{
+    background-color: black;
+    color:white;
+}
+ h3:hover{
+    text-decoration: none;
+}
+/*2.Active:when use you open/select the option */
+button:active{
+    background-color: hotpink;
+}
+p:active{
+    color: green;
+    font-weight:bolf;
+}
