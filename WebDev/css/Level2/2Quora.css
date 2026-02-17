@@ -72,5 +72,19 @@ button:active{
 }
 p:active{
     color: green;
-    font-weight:bolf;
+    font-weight:bold;
 }
+/*cheaked:* it can apply on radio type and cheakboxes*/
+
+input[type="radio"]:checked + label{
+    color:red;
+    font-weight:bold;
+}
+/* n th of type: it can use like only ac ton odd no  or second div or sec para like*/
+div:nth-of-type(2n){
+    background-color:rgb(255, 170, 140);
+}
+div:nth-of-type(2n+1){
+    background-color: aquamarine;
+}
+
