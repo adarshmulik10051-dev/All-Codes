@@ -1,0 +1,10 @@
+div{/* inside div all elemnt can inherite property from div */
+    background-color:orange;
+}
+/* as we see button and input can not be inherit this propery let see how*/
+button,input{
+    background-color: inherit;
+}
+button:hover{
+    background-color:crimson;
+}
