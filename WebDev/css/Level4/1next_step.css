@@ -1,0 +1,41 @@
+div{
+    height:200px;
+    width:200px;
+    /*1. apha channel: alpha is decide visibility/opacity for color between 0-1 | also we can used in hexa #00 00 00 1a like*/
+    background-color: rgba(187, 0, 255, 0.905);
+
+}
+
+#opacity{
+    background-color:#f8f804e4 ;
+    /* 2.Opacity : it can work on whole element that used (include all element)*/
+    opacity:0.7;
+}
+/*3.tramsition: it can manage spped to convert on  state to another state*/
+
+.transition{
+     height:200px;
+     width:200px;
+     background-color: chocolate;
+     transition-duration: 1s;
+     transition-delay:1s;
+     
+}
+.transition:hover{
+border-radius: 50%;
+background-color: cadetblue;
+}
+/*propertname|duration|time-function|dealay-->these the shorthand for trans*/
+section{
+     height:200px;
+     width:200px;
+     background-color: crimson;
+     margin-top:10%;
+     transition: margin-left 03s ease-in-out 0.2s;
+     
+}
+section:hover{
+    background-color: darkslategrey;
+    margin-left:50%;
+
+}

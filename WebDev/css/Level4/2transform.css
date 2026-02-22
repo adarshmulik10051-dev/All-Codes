@@ -1,0 +1,45 @@
+section{
+    margin-top:100px;
+}
+div{
+    width:200px;
+    height:50px;
+    text-align: center;
+    background-color: #7aa874;
+    border:2px solid black;
+    margin:10px auto;
+}
+div:nth-of-type(2n){
+    background-color: #f7db6a;
+}
+div:nth-of-type(3n){
+    background-color: #ebb02d;
+}
+/* transform*/
+/*transform:rotate*/
+#one{
+    transform:rotate(30deg);
+}
+
+#two{
+    transform:scale(0.5);
+    /* transform:scale(1,2);
+    transform:scaleX(1);
+    transform:scaleY(1);
+}*/
+}
+
+#three{
+    transform:translateX(50px);
+    /*
+    transform:translate(100px,100px);
+    transform: translateY(50px);*/
+}
+/*transform-skew: it used to like tillted pulling two point */
+#four{
+    transform:skew(40deg);
+}
+/* wee aplly more than one property on same elemnt */
+#five{
+    transform:skew(40deg) translate(150px);
+}
