@@ -1,0 +1,35 @@
+div{
+    height: 100px;
+    width:100px;
+    background-color:crimson;
+    border:3px solid black;
+    margin:20px;
+    display: inline-block;
+}
+/*position:static: when we use static then no change will occur when you set top ,left , right, */
+#static{
+    background-color:chocolate;
+    position:static;
+    top: 100px;
+    left:100px;
+}
+/*position: relative : it can move from center of object that you that you set offset like left right top bottom*/
+#relative{
+    position:relative;
+    background-color: chocolate;
+    top: 100px;
+    left:100px;
+}
+/*position:absolute:*/
+#absolute{
+    position:absolute;
+    background-color: chocolate;
+    top: 100px;
+    left:100px;
+}
+#fixed{
+      position:fixed;
+    background-color: chocolate;
+    top: 100px;
+    left:100px;
+}
