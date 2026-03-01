@@ -1,0 +1,28 @@
+#container {
+    height: 300px;
+    width: 80%;
+    background-color: azure;
+    margin: 10px auto;
+    border: 2px solid black;
+    /*flex will be the fit in first div parent div fit all data in parent div*/
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+   align-content:flex-end;
+    
+
+    
+}
+
+h1 {
+    text-align: center;
+}
+
+#container div {
+    height: 50px;
+    width: 200px;
+    color: white;
+    text-align: center;
+    font-size: 1.5;
+  
+}
