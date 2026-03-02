@@ -1,0 +1,14 @@
+#container{
+    height: 50px;
+    width: 900px;
+    border: 2px solid skyblue;
+    background-color: pink;
+    border-radius: 10px;
+    display: flex;
+}
+#container div{
+    height: 50px;
+    width: 80px;
+    font-size:24px;
+   
+}
