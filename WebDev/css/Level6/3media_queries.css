@@ -1,0 +1,24 @@
+h1{
+    background-color:yellow;
+    border:2px solid black;
+}
+/*fix width */
+@media(width:400px){
+    h1{
+        background-color: crimson;
+        color:white;
+    }
+}
+/*minwidth-->changes*/
+@media(min-width:401px){
+    h1{
+        background-color: chartreuse;
+    }
+}
+
+/*max width<---changes*/
+@media(max-width:200px){
+    h1{
+        background-color: brown;
+    }
+}

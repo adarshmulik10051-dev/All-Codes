@@ -1,0 +1,52 @@
+.box{
+    height: 100px;
+    width: 300px;
+    background-color:pink;
+
+   
+    
+    animation-name:backgroundcolor;
+    animation-duration:2s;
+    animation-timing-function:ease-in;
+    animation-delay:0s;
+    animation-iteration-count:infinite;
+    animation-direction:none;
+    /*shorthand: animation: fontanimation 2s ease-in 0s infinite normal;*/
+    /*%use:animation: circuleranimation 2s ease-in 0s infinite normal;*/
+
+    
+}
+
+
+@keyframes fontanimation{
+     from{
+        font-size: 20px;
+    }
+     to{
+        font-size:40px;
+    }
+}
+
+@keyframes backgroundcolor{
+    from{
+        background-color: chocolate;
+    }
+    to{
+        background-color:slateblue;
+    }
+}
+
+@keyframes circuleranimation{
+    0%{
+        height: 10px;
+        background-color: coral;
+    }
+    50%{
+        height:2000px;
+        background-color: darkorange;
+    }
+    100%{
+        height:400px;
+        background-color: olive;
+    }
+}
