@@ -31,6 +31,23 @@ console.log(age<17);
 console.log(age<=18);
 console.log(age!=18);
 
+//5)logical operaters
+
+let marks=90;
+if(marks>=32&&marks>=80){
+    console.log("you pass with A+ grade");
+}
+
+//practise question 
+
+let string = "apple";
+
+if( (string.length>3) && (string[0]=="a") ){
+    console.log("The string is good.")
+}else{
+    console.log("String is not good .");
+}
+
 
 
 

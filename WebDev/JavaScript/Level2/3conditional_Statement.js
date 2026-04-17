@@ -59,10 +59,10 @@ else if(size=="l"){
 
 //6)if - else
 
-     let marks = 35;
-     if(marks>=35){
+     let mark = 35;
+     if(mark>=35){
         console.log("pass");
-        if(marks>=80){
+        if(mark>=80){
             console.log("grade is : o+");
         }else{
             console.log("grade is A");
@@ -70,3 +70,67 @@ else if(size=="l"){
      }else{
         console.log("Better luck next time");
      }
+
+     //7) switch statement 
+
+     let choice ="3";
+
+     switch (choice){
+      case "1":
+      console.log("samosa");
+      break;
+      case"2":
+      console.log("fruity");
+      break;
+      case"3":
+      console.log("mogu mogu");
+      break;
+      default:
+         console.log("not availabel")
+     }
+
+     //8)use switch statement to print day of the week
+
+     let day="8";
+
+     switch(day){
+         case"1":
+         console.log("monday");
+         break;
+         case"2":
+         console.log("tuesday");
+         break;
+         case"3":
+         console.log("wednesday");
+         break;
+         case"4":
+         console.log("thursday");
+         break;
+         case"5":
+         console.log("friday");
+         break;
+         case"6":
+         console.log("saturday");
+         break;
+         case"7":
+         console.log("sunday");
+         break;
+         default:
+            console.log("choose correct option ");
+     }
+
+
+     // Alert and prompt
+     alert("this is the main work");
+     console.error("this the error log");
+     console.warn("this is the warn log");
+     //prompts
+
+    let firstName= prompt("enter your first name:");
+    let lastNmae= prompt("enter you last name");
+    console.log("Welcome",firstName," ",lastNmae,"!");
+
+     
+
+
+
