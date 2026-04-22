@@ -152,4 +152,39 @@ let greete = function(){
 }
 multiGreet(greete,3);
 
+// higher order -- . thats return the functions value 
 
+function oddEvenTest(request){
+    if(request=="odd"){
+        let odd = function(n){
+            console.log(!(n%2==0));
+        }
+        return odd ;
+    }else if(request=="even"){
+        let even = function(n){
+            console.log((n%2==0));
+        }
+        return even ;
+    }else{
+        console.log("Not correct choice");
+    }
+}
+let request="odd";
+let func =oddEvenTest(request);
+
+//methods is like object here the properties is the function key is function name and vaule is the function
+
+
+let calculator ={
+    add:function(a,b){
+        return a+b ;
+    },
+    sub:function(a,b){
+        return a-b;
+    },
+    mul:function(a,b){
+        return a*b;
+    }
+
+};
+console.log(calculator.mul(1,2));
