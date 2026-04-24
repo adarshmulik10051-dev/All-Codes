@@ -73,3 +73,7 @@ function cntOvels(str2){
 }
 let cnt =cntOvels(str2);
 console.log(cnt);
+
+//5.Write a Java Script function to generate a random number within a range(start,end).
+
+
