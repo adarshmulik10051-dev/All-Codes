@@ -57,3 +57,36 @@ const mul = (a,b)=>(
 )
 let m = mul(2,3);
 console.log(m);
+
+//set time out function
+console.log("hi there");
+setTimeout(() => {
+    console.log("apna college");
+},4000);
+console.log("welcome to");
+//setInterval function
+
+setInterval(()=>{
+    console.log("heyyy!!");
+},2000);
+//how to stop it 
+
+let id = setInterval(()=>{
+    console.log("adarsh");
+
+},3000);
+clearInterval(id);   // to stop the setInterval time function
+//pq wite a ariow function for square of the no
+const squ = (n)=>n*n;
+let s = squ(3);
+console.log(s);
+
+//print a hello world after 5 times at intervel 2 sec 
+
+let id3 = setInterval(()=>{
+    console.log("Hello World!!");
+},2000);
+
+setTimeout(()=>{
+    clearInterval(id3);
+},10000);
