@@ -27,3 +27,5 @@ let n = 5 ;
  }
  let evenOrnot =isEven(n);
  console.log(evenOrnot);
+
+ 
