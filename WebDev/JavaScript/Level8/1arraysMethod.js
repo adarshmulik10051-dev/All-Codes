@@ -166,4 +166,4 @@ const datacopy={
 
  }
 
- let{name, age,pass:secret,username:user}// pass search hoil ahhe ka object mde pass la appan secrect bolu shakto  and username la user  
+ let{name, age,pass:secret,username:user}=student;// pass search hoil ahhe ka object mde pass la appan secrect bolu shakto  and username la user  
