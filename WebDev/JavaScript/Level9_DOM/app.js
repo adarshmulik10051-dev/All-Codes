@@ -68,7 +68,14 @@ let image = document.querySelector('.oldImg');
 console.dir(image);
 console.dir( img.style);
 
-let links = DocumentFragment.querySelector('.box a');
+let links = Document.querySelector('.box a ');
+
  for(link of links ){
     link.style.color="purple";
  }
+
+ let name = {
+    names:"adarsh",
+    age :12,
+ }
+ console.log(name.names);
