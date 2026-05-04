@@ -52,9 +52,16 @@ document.querySelector('p').textContent;
 
 // getAttribute('att');
 
+let a = document.querySelector('a');
+a.getAttribute('class');
+
+
 let img = document.querySelector('img');
 
 img.getAttribute('id');
+
+let a = document.querySelector('a');
+a.getAttribute('class');
 
 //setAttribute('att' , 'value') ;  value= that yyou want to change add there 
 
