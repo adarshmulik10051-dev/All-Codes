@@ -74,8 +74,3 @@ let links = Document.querySelector('.box a ');
     link.style.color="purple";
  }
 
- let name = {
-    names:"adarsh",
-    age :12,
- }
- console.log(name.names);
