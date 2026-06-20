@@ -100,6 +100,114 @@ arr.splice(0,1,50,60);// start at idx 0 , remove 1 element , add 50 and 60
 console.log(arr);
 
 
+//11.3 constant array : 
+//it does not make array immutable 
+// it reassignment and updating is not possible 
+const nums = [1,2,3,4];
+nums.push(5);//possible
+nums[5]=4;//possible
+console.log(nums);
+//nums=[8,9,10] not possible 
+
+//11.4 nested arrays
+let pairs = [[2,4],[3,4],[5,4]];
+console.log(pairs);
+
+
+//12 loops 
+//to do repeat the same work 
+//12.1 for loop :
+    for(let i = 0 ; i < 5 ; i ++){
+        console.log(i);
+    }
+//12.2 nested loop :
+for(let i = 0 ; i < 5 ; i ++){
+    for (let j = 0 ; j < 3 ; j ++){
+        console.log(i,j);
+    }
+}    
+
+//12.3while loop :
+// while(cdn){work};
+let i =1 
+while(i<5){
+    console.log(i);
+    i++;
+} 
+
+//12.4 loops with array and strings
+let numb=[1,2,3,4];
+for(el of numb){
+    console.log(el);
+}
+  let myName ="adarsh"
+  for (char of myName){
+    console.log(char);
+  }
+
+  //14 object literals : collection of multiple properties 
+  //properties contain key:value pairs
+  //14.1how to create :
+  let students={
+      name:"adarsh",
+      age:20,
+      isStudent:true
+  }
+  //14.2 how to acess
+ console.log(students.name);
+ //14.3how to add properties
+ students.city="mumbai";
+ //14.4 how to update properties
+ students.age=21;
+ console.log(students);
+ //14.5 how to delete 
+ delete students.isStudent;
+ console.log(students);
+
+// 14.6 object inside object// nested object 
+const dada ={
+    adarsh:{
+        age:21,
+        marks:99
+    },
+    sarthak:{
+        age:21,
+        marks:100
+    }
+}
+console.log(dada.sarthak.marks);
+
+//14.5 array objects
+const array = [
+    {name:"xyz",age:20},
+    {name:"abc",age:21}
+];
+console.log(array[0].age);
+
+// 14.6Math Objects:
+console.log(Math.max(3, 4));
+console.log(Math.min(3, 4));
+console.log(Math.round(3.49));
+console.log(Math.floor(3.9));
+console.log(Math.ceil(3.2));
+console.log(Math.abs(-45));
+console.log(Math.pow(2, 3));
+console.log(Math.sqrt(169));
+console.log(Math.PI);
+console.log(Math.E);
+console.log(Math.random());
+
+//14.6 genrate random number from given range 
+//1. use Math.random()-> any random no bet 0-1 excluid ex-0.342
+//2.multiply with 10 for 3.42 --> here you multiply by n mean range tou want 
+//3.use Math.floor()-> for  ->3
+//4.add 1 to result -> 4 (because 1 is not inculid )
+
+let randomNumber=Math.floor(Math.random()*100)+1;
+console.log(randomNumber);
+
+
+
 
 
 
