@@ -270,7 +270,143 @@ public class Basic_arrays{
             
             }
             System.out.println("tp is ; "+trapedWater);
-           
-    
+
+
+            //1.Basic of 2D Array 
+            //1 How to create:
+            int d1 [][]=new int [2][2];
+            int d2 [][]={ {1,2,3},
+                          {3,4,5},
+                          {6,7,8},
+                          {9,1,0}
+                         };
+            //2 length
+            int row = d2.length;//no of row  
+            int col=d2[0].length;//no of col 
+            System.out.println("row size is: "+row+" and col size is : "+col);
+
+            //3. printing 2D array:
+            for(int i= 0 ; i < row ; i ++){
+                for(int j = 0 ; j < col ; j++){
+                    System.out.print(d2[i][j]+" ");
+                }
+                System.out.println();
+            }
+            System.out.println();
+
+            //4.update in 2D array 
+            d2[0][1]=88;
+            d2[2][1]=66;
+            for(int i= 0 ; i < row ; i ++){
+                for(int j = 0 ; j < col ; j++){
+                    System.out.print(d2[i][j]+",");
+                }
+                System.out.println();
+            }
+            System.out.println();
+
+            //Question by AC
+            //1.Search position 
+            int key1 = 88 ;
+            for(int i = 0 ; i < row ; i ++){
+                for(int j = 0 ; j < col ; j++){
+                    if(d2[i][j]==key1){
+                        System.out.println("the key is present on index:"+i+","+j);
+                        break;
+                    }  
+                }
+            }
+            //2.Spiral Matrix
+            int spiral [][]={{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+            int n2 = spiral.length;
+            int m2= spiral[0].length;
+            int startRow = 0 ;
+            int endRow = n2-1;
+            int startCol = 0;
+            int endCol= m2-1;
+            
+            while(startRow<=endRow &&startCol<=endCol ){
+
+                // top boundery
+                for(int j = startCol ; j <=endCol ; j++){
+                    System.out.print(spiral[startRow][j]+" ");
+                }
+                // rightboundery
+                for(int i = startRow+1 ; i <=endRow ; i++){
+                    System.out.print(spiral[i][endCol]+" ");
+                }
+                //bottomboundery
+                for(int j= endCol-1 ; j >= startCol ; j--){
+                    if(startRow==endRow){
+                        break;
+                    }
+                    System.out.print(spiral[endRow][j]+" ");
+                }
+                //leftboundery
+                for(int i = endRow-1 ; i >=startRow+1 ; i--){
+                    if(startCol==endCol){
+                        break;
+                    }
+                    System.out.print(spiral[i][startCol]+" ");
+                }
+                startRow++;
+            startCol++;
+            endCol--;
+            endRow--;
+            }
+            System.out.println();
+            //3.sum of digonal in 2D 
+            int sum = 0 ;
+             for(int i = 0 ;  i < n2 ; i++){
+                sum+=spiral[i][i];
+                if(i!=n2-1-i){
+                    sum+=spiral[i][n2-i-1];
+                }
+             }
+           System.out.println("sum of digonals is :"+sum);
+
+           //4.Search in sorted 2D array 
+           int sortArr[][]={{10,20,30,40},
+                            {15,25,35,45},
+                            {27,29,37,48},
+                            {32,33,39,50}
+                            };
+            int cell=48;
+            int rows = 0 ;
+            int column= sortArr[0].length-1;
+             while(rows<=sortArr.length-1&&column>=0){
+                 int cellValue=sortArr[rows][column];
+                if(cellValue==cell){
+                    System.out.println("key is found on index:"+rows+","+column);
+                }
+                if(cellValue<cell){
+                    rows++;
+                }else{
+                    column--;
+                }
+             }
+            System.out.println();
+
+            //5.Transpose of 2d Arraay:
+            int set [][]={{1,2,3,4},{5,6,7,8}} ;
+            int n3=set.length;
+            int m3= set[0].length;
+            
+            int transpose[][]= new int [m3][n3];
+            for(int i = 0 ; i < n3 ; i ++){
+                for(int j = 0 ; j < m3 ; j++){
+                    transpose[j][i]=set[i][j];
+                }
+            }
+            for (int i = 0; i < m3; i++) {
+                  for (int j = 0; j < n3; j++) {
+                        System.out.print(transpose[i][j] + " ");
+                  }
+                  System.out.println();
+            }
+            System.out.println();
+
+
+
     }
 }
