@@ -206,6 +206,226 @@ console.log(Math.random());
 let randomNumber=Math.floor(Math.random()*100)+1;
 console.log(randomNumber);
 
+//15functions in js 
+//15.1how to declare 
+function sum(a,b){
+    return a+b;
+}
+
+//15.2 Scopes
+//block scope --> {let a =10;}; print(a) not possible 
+//function scope -->function(){return a+b} print(a) is not valid
+//glooble scope--> available anywhere
+
+//15.3 try catch method
+try{
+    console.log("hello"+d);// if not work get error
+}catch(err){
+    console.log(err); //print actual error but not in red 
+}
+
+//16.arrow Function 
+//16.1.how to declare: 
+const sub=(a ,b)=>{
+    return a-b;
+};
+console.log(sub(4,2));
+
+const power =(x)=>{
+    return x*x;
+};
+console.log(power(2));
+
+//16.2 settimeout(fxn ,time);
+//print after once after one after delay in x ms 
+setTimeout(()=>{
+    console.log("hi rucha!!");
+},5000);//after 5 sec print once at time 
+
+//16.3setinterval(fxn,time)
+// print repeativly infinite time gap of time
+const id =setInterval(()=>{
+    console.log("monya");
+},2000);
+
+//16.4how to stop setiterval fxn:
+setTimeout(()=>{
+    clearInterval(id);
+},10000);
+
+//#**17.this keywordin js :
+ // this mean ->>which obj own mw right now 
+
+/*
+Think of it like :
+    *"Who is calling me  right now "
+
+    1. in a normal object method 
+    const user ={
+        name:adarsh,
+        greet(){
+            console.log(this.name);
+        }
+    };
+    user.greet();
+    Here:
+    this → refers to user
+    So output: "Amit"
+    
+        2. In a regular function (not inside object)
+        function show() {
+        console.log(this);
+        }
+        show();
+
+        Here:
+        In strict mode → this is undefined
+        In non-strict mode → this is window (browser global object)
+    
+        3.In an arrow function
+        Arrow functions do not have their own this.
+        They take this from the surrounding scope.
+
+        const obj = {
+        name: "Amit",
+        greet: () => {
+            console.log(this.name);
+        }
+        };
+        obj.greet();
+
+        Here:
+        this is NOT obj
+        It comes from outside → usually window or undefined
+        So this.name is not "Amit"
+    
+        Simple rule to remember
+
+👉 this depends on how the function is called, not where it is written.
+    */ 
+
+// 18.arrays important methods 
+//18.1 forEach(fnx):loop thorugh each element in an array 
+// arr.forEach(()=>{});
+//it does not return new array 
+//it always return undefined
+let arr1= ["apple", "mango","gouva"];
+let arr2=[1,2,3,4,5];
+
+arr1.forEach((x)=>{
+    console.log(x*x);//NAN
+});
+
+arr1.forEach((num, idx) => {
+      console.log(`${idx + 1}.${num}`);
+});
+
+//18.2.map(fnx): create new arr applying function on each ealement
+//arr.map(()=>{});
+//Map() return a new arr
+
+let newarr = arr2.map((el)=>{
+    return el*2;
+});
+console.log(newarr);
+
+//18.3. filter(fxn): contains the only element that pass cdn 
+let even =arr2.filter((el)=>{
+    return el%2==0;
+});
+console.log(even);
+
+//18.4 every(fxn): the all el pass the cdn then return true else false
+let result = arr2.every((el)=>{
+    return el%2==0;
+});
+console.log(result);
+
+//18.5.reduce(fxn) :reduce the array to single value 
+//arr.reduce((accumalator,currentvalue)=>{},initialvalue);
+const addition = arr2.reduce((res,el)=>{
+    return res+el;
+},0);
+console.log(addition);
+
+let maxarr=[1,2,3,45,6];
+const max = maxarr.reduce((max,el)=>{
+    if(max<el){
+        return el;
+    }else{
+        return max ;
+    }
+});
+console.log(max);
+
+// 19. default parametr:give value for arg 
+// function (a,b=3);b=3 default
+
+
+ // defualt parameter ->> it give value to arguments
+
+  function sum(a,b=2){// (2,3)pass kela tr 5 denar ,, (1)pass kela tr b default 2 ghenar anni 3 return karel
+    return a+b  ;
+  }
+  let sum1 = sum(1);//1+default value 2 = 3
+  let sum2 = sum(4,5);// 4+5 = 9;
+  //(a=3,b) is not valid , value assign by order
+
+
+  // spred function-->function name(...arr);
+
+Math.min(set[0],set[1],set[2],set[3]);//each element will be pass but we use spred then it can go into one by one automatically
+
+console.log(Math.min(...set));
+
+console.log(..."adarshmulik");
+
+//spred with array litrales
+let even = [2,4,6,8,10];
+let odd =[1,3,5,7,9];
+let both = [...even,...odd];
+
+//spred with object litrals
+
+
+const data={
+  email:"adarshmulik@gmail.com",
+  pass:"adarsh1202"
+};
+
+const datacopy={
+  ...data,
+  id:12
+};
+
+//rest function (...args)
+
+ function sum(...args){
+     return args.reduce((sum , el)=> sum+el  );
+ }
+
+ //also you (msg, a,...args)--> first &sec vaule assign to msg and a then make aaray
+
+ // destructuring 
+
+ let name = ["adarsh","sathak","harsh","dk","ro","shera"];
+ let [winner , runnerup,potm,pos,...players]=name;// insted of let winner = name[0],runnerup=name[1] so on;
+ console.log(winner);
+
+ //destructuring on object
+
+ const student = {
+  name:"nadarsh",
+  age:12,
+  class:12,
+  subjects:["marathi","hindi","histroy"],
+  username:"@adarsh12",
+   pass:"abcd"
+
+ }
+
+ let{name, age,pass:secret,username:user}=student;// pass search hoil ahhe ka object mde pass la appan secrect bolu shakto  and username la user  
+
 
 
 
