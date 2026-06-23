@@ -164,29 +164,500 @@ public class Basics_Strings {
     //10 toString()--> convert all char int float into string
     sb2.toString();
 
+    //Questiions by AC:
+    //1.cheack if string is palindrome 
+     String s8 = "madam";
+     System.out.println(isPalindrome(s8));
 
-    
+     //2.print Largest String 
+     String foeex[]={"apple","banana","zebra"};
+     System.out.println(largest(foeex));
 
+    //3. convert letter to upper case
+    String line = "my name is adarsh mulik";
+    System.out.println(toUppercase(line));
 
-
-
-
-
-
-
-
-
-
-
-      
-
-
-
-
-
-
+    //4.cheak anagrams 
+    String one = "race";
+    String two = "care";
+   System.out.println(isAnagramsOP(one, two));
+   System.out.println(isAnagramsBF(one, two));
 
 
 
     }
+    //1
+    public static boolean isPalindrome(String s8){
+      boolean result = true;
+       int si = 0 ;
+       int ei = s8.length()-1;
+        while(si<=ei){
+          if(s8.charAt(si)!=s8.charAt(ei)){
+            result= false;
+          }
+          si++;
+          ei--;
+        }  
+        return result;
+      }
+      //2
+      public static String largest(String []forex){
+        String largest = forex[0];
+
+        for(int i = 1 ; i < forex.length; i++){
+          if(forex[i].compareTo(largest)>0){
+              largest=forex[i];
+          }
+        }
+        return largest ;
+
+      }
+      //3 
+
+      public static String toUppercase(String line){
+         StringBuilder sb4 = new StringBuilder("");
+          
+        sb4.append(Character.toUpperCase(line.charAt(0)));
+        for(int i = 1 ; i <line.length(); i++){
+          if(line.charAt(i)==' '&& i<line.length()-1){
+            sb4.append(" ");
+            i++;
+            sb4.append(Character.toUpperCase(line.charAt(i)));
+          }
+          else{
+            sb4.append(line.charAt(i));
+          }
+        }
+         return sb4.toString();
+
+      }
+      //4 
+      public static boolean isAnagramsOP(String one, String two){
+        if(one.length()!=two.length()){
+          return false;
+        }
+          int prefix[]=new int [26];
+          for(int i = 0 ; i < one.length();i++){
+            prefix[one.charAt(i)-'a']++;
+            prefix[two.charAt(i)-'a']--;
+          }
+        
+          for(int el :prefix){
+            if(el!=0){
+              return false;
+            }
+          }
+          return true;
+      }
+      public static boolean  isAnagramsBF(String s1,String s2){
+        int n1 =s1.length();
+        int n2=s2.length();
+
+        if(n1!=n2){
+          return false;
+        }
+
+        char[] chararr1=new char [n1];
+        char[]chararr2=new char [n2];
+
+        chararr1=s1.toCharArray();
+        chararr2=s2.toCharArray();
+
+        Arrays.sort(chararr1);
+        Arrays.sort(chararr2);
+
+        for(int i = 0 ; i < n1 ; i++){
+          if(chararr1[i]!=chararr2[i]){
+            return false;
+          }
+        }
+
+       
+
+        return true;
+      }
+      public static void  theory(){
+        
+          package DSA_Rev;
+
+// import java.util.*;
+
+class Main {
+      public static void main(String[] args) {
+            // 1.How to create:
+            String str = "Sarthak";
+            String str1 = new String("Jadhav");
+
+            // 2.How to print:
+            System.out.println("String 1: " + str);
+            System.out.println("String 2: " + str1);
+
+            // 3.How to take input:
+            // Scanner sc = new Scanner(System.in);
+            // System.out.print("Enter Input String: ");
+            // String str2 = sc.nextLine();
+            // System.out.println("You entered: "+str2);
+
+            // 4.String length function:
+            System.out.println("length of string 1 is: " + str1.length());
+
+            // 5.How to concatenate string: str1 + str2
+            System.out.println(str + " " + str1);
+
+            // 6.How to get ith character from the string:
+            // **Method: str.charAt(int);
+            for (int i = 0; i < str.length(); i++) {
+                  System.out.print(str.charAt(i) + " ");
+            }
+            System.out.println();
+            for (int i = 0; i < str.length(); i++) {
+                  if (str.charAt(i) == 'h') {
+                        System.out.println("char found at idx: " + i);
+                  }
+            }
+
+            // 7.How to comapre two strings:
+            String ex1 = "abc"; // string pool
+            String ex2 = "abc"; // string pool
+            String ex3 = new String("abc"); // new->heap
+            if (ex1 == ex2) {
+                  System.out.println("same"); // true;
+            } else {
+                  System.out.println("not same");
+            }
+
+            if (ex1 == ex3) {
+                  System.out.println("same");
+            } else {
+                  System.out.println("not same"); // true;
+            }
+            // because ex3 created new string in heap memory not in string pool
+
+            // to compare the string wtih new keyword
+            // **Method: str1.euqals(str2);
+            boolean res = ex1.equals(ex3);
+            System.out.println(res); // true;
+
+            // 8.How to get substring:
+            // **Method: str.substring(start,end);
+            // where end in excluded start is included
+            String sub = "Hello";
+            System.out.println(sub.substring(0, 2));
+            System.out.println(sub.substring(2));
+
+            // 9.to check wheather the string contains a substring:
+            // **Method: str.contains("str");
+            String cont = "Sarthak Jadhav";
+            System.out.println(cont.contains("Jad"));
+            System.out.println(cont.contains("abc"));
+
+            // 10.to find the index of current char in string:
+            // **Method: str.indexOf('char');
+            String idof = "Hello Wolrd";
+            System.out.println(idof.indexOf('o')); // returns first occurance only
+
+            // 11.when to split the string afte a delimeter
+            // for ex. after , or after space_
+            // **Method: str.split("delimeter");
+            String s = "apple,banana,mango";
+            String[] fruits = s.split(",");
+            for (String nums : fruits) {
+                  System.out.print(nums + " ");
+            }
+            System.out.println();
+
+            String s2 = "a.b.c";
+            String[] arr = s2.split("\\.");
+            for (String nums : arr) {
+                  System.out.print(nums + " ");
+            }
+            System.out.println();
+
+            // 12.when we need to replce existing char or substring with another char or
+            // substring:
+            // **Method: str.replace("str","str") || ('ch','ch');
+            String rep = "I love you";
+            System.out.println(rep.replace("love", "hate"));
+
+            String rep2 = "bandi";
+            System.out.println(rep2.replace('b', 'r'));
+
+            // 13.how to convert strings to arrays:
+            // **Method: str.toCharArray();
+            String nums = "Sarthak Vilas Jadhav";
+            char[] name = nums.toCharArray();
+            for (char x : name) {
+                  System.out.print(x + " ");
+            }
+            System.out.println();
+
+            // Topic: StringBiulder
+            // 1.creation:
+            StringBuilder sb = new StringBuilder();
+            StringBuilder sb2 = new StringBuilder("Shweta");
+            // StringBuilder sb3 = new StringBuilder(50);
+
+            // 2.how to print:
+            System.out.println(sb);
+            System.out.println(sb2);
+
+            // Methods:
+            StringBuilder ex = new StringBuilder("Hello Java");
+            // 1.append(string ||int||bool)-> add data at end
+            sb2.append(" Gupta");
+            System.out.println(sb2); // Shweta Gupta
+            sb2.append(" " + 143);
+            System.out.println(sb2); // Shweta Gupta 143
+
+            // 2.insert(idx,str||char)-> add data at specefic idx
+            ex.insert(5, "_"); // Hello_ Java
+            System.out.println(ex);
+
+            // 3.delete(int,int)-> deletes char in specefic range
+            ex.delete(7, 11); // Hello_
+            System.out.println(ex);
+
+            // 4.replace(idx,idx)-> replace a range of characters.
+            ex.replace(0, 4, "Fello");
+            System.out.println(ex);
+
+            // 5.reverse()-> reverse the string
+            ex.reverse();
+            System.out.println(ex);
+
+            // 6.length()-> length of the string
+            System.out.println(ex.length());
+
+            // 7.charAt()->
+            System.out.println(ex.charAt(1));
+
+            // 7.1 setCharAt()->
+            ex.setCharAt(1, 'a');
+            System.out.println(ex);
+
+            // 7.2 deleteCharAt()->
+            ex.deleteCharAt(1);
+            System.out.println(ex);
+
+            // 8.toString() -> converts sb to str
+            System.out.println(ex.toString());
+
+            // Questions by AC:
+            // 1.Check if string is palindrome:
+            String s8 = "madam";
+            System.out.println(isPalindrome(s8));
+
+            // 2.Print largest string:
+            String[] forex = { "apple", "banana", "zebra" };
+            System.out.println(largest(forex));
+
+            // 3.convert letters to uppercase:
+            String s9 = "my name is shweta";
+            System.out.println(upperCase(s9));
+
+            // 4.Anagrams of each other:
+            String s10 = "race";
+            String s11 = "care";
+
+            System.out.println(checkAnagramBF(s10, s11));
+            System.out.println(checkAnagramOP(s10, s11));
+
+            // 5.Rotate strings:
+            String s12 = "roatation";
+            String goal = "tionroata";
+            System.out.println(rotateStringBF(s12, goal));
+            System.out.println(rotateStringOP(s12, goal));
+
+      }
+
+      // 1
+      public static boolean isPalindrome(String pal) {
+            int start = 0;
+            int end = pal.length() - 1;
+
+            while (start <= end) {
+                  if (pal.charAt(start) != pal.charAt(end)) {
+                        return false;
+                  }
+                  start++;
+                  end--;
+            }
+            return true;
+      }
+
+      // 2
+      public static String largest(String[] forex) {
+            String largest = forex[0];
+            for (int i = 0; i < forex.length; i++) {
+                  if (forex[i].compareToIgnoreCase(largest) > 0) {
+                        largest = forex[i];
+                  }
+            }
+            return largest;
+      }
+
+      // 3
+      public static String upperCase(String ex4) {
+            StringBuilder sb3 = new StringBuilder("");
+
+            sb3.append(Character.toUpperCase(ex4.charAt(0)));
+            for (int i = 1; i < ex4.length(); i++) {
+                  if (ex4.charAt(i) == ' ' && i < ex4.length() - 1) {
+                        sb3.append(" ");
+                        i++;
+                        sb3.append(Character.toUpperCase(ex4.charAt(i)));
+                  } else {
+                        sb3.append(ex4.charAt(i));
+                  }
+            }
+            return sb3.toString();
+      }
+
+      // 4
+      public static boolean checkAnagramBF(String s1, String s2) {
+            int n1 = s1.length();
+            int n2 = s2.length();
+
+            if (n1 != n2) {
+                  return false;
+            }
+
+            char[] charArray1 = s1.toCharArray();
+            char[] charArray2 = s2.toCharArray();
+
+            java.util.Arrays.sort(charArray1);
+            java.util.Arrays.sort(charArray2);
+
+            for (int i = 0; i < n1; i++) {
+                  if (charArray1[i] != charArray2[i]) {
+                        return false;
+                  }
+            }
+            return true;
+      }
+
+      // 4
+      public static boolean checkAnagramOP(String s1, String s2) {
+            int n1 = s1.length();
+            int n2 = s2.length();
+
+            if (n1 != n2) {
+                  return false;
+            }
+
+            int[] freq = new int[26];
+
+            for (int i = 0; i < n1; i++) {
+                  freq[s1.charAt(i) - 'a']++;
+            }
+
+            for (int i = 0; i < n2; i++) {
+                  freq[s2.charAt(i) - 'a']--;
+            }
+
+            for (int i = 0; i < 26; i++) {
+                  if (freq[i] != 0) {
+                        return false;
+                  }
+            }
+            return true;
+      }
+
+      // 5
+      public static boolean rotateStringBF(String s, String goal) {
+            int n1 = s.length();
+            int n2 = goal.length();
+            if (n1 != n2) {
+                  return false;
+            }
+
+            for (int i = 0; i < n1; i++) {
+                  String rotated = s.substring(i) + s.substring(0, i);
+                  if (rotated.equals(s)) {
+                        return true;
+                  }
+            }
+            return false;
+      }
+
+      // 5
+      public static boolean rotateStringOP(String s, String goal) {
+            int n1 = s.length();
+            int n2 = goal.length();
+            if (n1 != n2) {
+                  return false;
+            }
+
+            String doubled = s + s;
+            boolean result = doubled.contains(goal);
+            return result;
+      }
+
+      public void theory() {
+            /*
+             * 1. String (Immutable)
+             * String s = "Hello";
+             * s = s + " World";
+             * System.out.println(s);
+             * 
+             * What happens:
+             * "Hello" object created.
+             * "Hello World" new object created.
+             * Old object remains in memory until garbage collected.
+             * So every modification creates a new object.
+             */
+
+            /*
+             * 2. StringBuilder (Fast)
+             * StringBuilder sb = new StringBuilder("Hello");
+             * sb.append(" World");
+             * System.out.println(sb);
+             * 
+             * Output:
+             * Hello World
+             * 
+             * Here, the same object is modified. No new string object is created each time.
+             * 
+             * Good for:
+             * for(int i = 0; i < 1000; i++) {
+             * sb.append(i);
+             * }
+             */
+
+            /*
+             * 3. StringBuffer (Thread Safe)
+             * StringBuffer sb = new StringBuffer("Hello");
+             * sb.append(" World");
+             * System.out.println(sb);
+             * 
+             * Output:
+             * Hello World
+             * 
+             * Works like StringBuilder, but methods are synchronized:
+             * 
+             * public synchronized StringBuffer append(String str)
+             * This makes it safe when multiple threads access the same object.
+             */
+
+            /*
+             * Interview Answer (1 line)
+             * String → Immutable.
+             * StringBuilder → Mutable, faster, not thread-safe.
+             * StringBuffer → Mutable, thread-safe, slightly slower.
+             * 
+             * Simple Example
+             * String str = "Java";
+             * str += " Programming"; // New object
+             * 
+             * StringBuilder sb1 = new StringBuilder("Java");
+             * sb1.append(" Programming"); // Same object
+             * 
+             * StringBuffer sb2 = new StringBuffer("Java");
+             * sb2.append(" Programming"); // Same object + thread safe
+             */
+
+      }
 }
+      }
+      
+    }
