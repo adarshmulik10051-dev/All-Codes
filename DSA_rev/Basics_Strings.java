@@ -278,7 +278,7 @@ public class Basics_Strings {
       }
       public static void  theory(){
         
-          package DSA_Rev;
+         
 
 // import java.util.*;
 
