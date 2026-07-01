@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "OPPs",
+            "request": "launch",
+            "mainClass": "OPPs",
+            "projectName": "DSA_rev_6bd5b85e"
+        },
+        {
+            "type": "java",
             "name": "ArrayLists",
             "request": "launch",
             "mainClass": "ArrayLists",

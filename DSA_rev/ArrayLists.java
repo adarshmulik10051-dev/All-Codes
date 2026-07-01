@@ -203,7 +203,7 @@ public class ArrayLists {
            //5.2. Optimal Apporoch :o(n)
            System.out.println( "Container with max water is:"+ContainerWithmwOP(Height));
 
-           //6. Pair-sum :
+           //6. Pair-sum in sorted arrayList:
            ArrayList<Integer> nums =new ArrayList<>();
            nums.add(1);
            nums.add(2);
@@ -220,8 +220,17 @@ public class ArrayLists {
            System.out.println(PairSumOP(nums, target));
 
 
-
-          
+           //7.pairsum in sorted rotated arrayList:
+           ArrayList<Integer>nums1 = new ArrayList<>();
+           nums1.add(11);
+           nums1.add(15);
+           nums1.add(6);
+           nums1.add(8);
+           nums1.add(9);
+           nums1.add(10);
+           int n =nums1.size();
+           int target1=16;
+           System.out.println(sumRotatedSortedArray(nums1, target1, n));
            
           }
            //**5.1 //Brute Approch:o(n^2).
@@ -298,6 +307,39 @@ public class ArrayLists {
             }
             return false;
 
+           }
+           //7.find sum in rotated sorted arraylist
+           public static boolean sumRotatedSortedArray(ArrayList<Integer>nums1,int target,int n){
+
+            int bp = -1;
+              for(int i = 0 ;  i < n-1 ; i ++){
+                if(nums1.get(i)>nums1.get(i+1)){
+                  bp=i;
+                  break;
+                }
+              }
+             
+              int lp = bp+1;
+              int rp = bp;
+              while(lp!=rp){
+
+                if(nums1.get(lp)+nums1.get(rp)==target){
+
+                  return true;
+
+                }
+                if(nums1.get(lp)+nums1.get(rp)<target){
+
+                  lp=(lp+1)%n;
+
+                }
+                else{
+
+                  rp=(n+rp-1)%n;
+
+                }
+              }
+              return false;
            }
            
     }
