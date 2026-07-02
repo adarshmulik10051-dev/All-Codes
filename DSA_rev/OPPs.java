@@ -71,7 +71,43 @@ public static void main(String args[]){
    System.out.println(c1.sum(1,2,3));
    //8.2  run time khali 
 
+   //9. Abstraction:
+   //9.1 Abstaction classe
+  // Animal a = new Animal();// nhi  banu shakt object abstaction class cha 
+   Horse h = new Horse();
+   h.eat();
+   h.legs();
+
+   Chik C= new Chik ();
+   c.eat();
+
+   //9.2 Interface :
+  //   Chess s = new Chess();// object nhi bnu shakat inerface cha 
+
+   King k = new King();
+    k.moves();
+    k.position();
+
+    // 10 static keyword 
+     
+    Employee E1 = new Employee();
+    E1.setname("Adarsh");
+    E1.display();//Adarsh TCS
+
+    Employee E2 = new Employee();
+    E2.setname("Rohit");
+    E2.display();//Rohit TCS tcs atumatic alla static banvla hota
+
+      //11 super key word:
+
+      Mobile m = new Mobile();
+       m.display();//Samsung
+ 
+
+
 }
+      
+
 
 }
     /* ==========================
@@ -395,7 +431,194 @@ class BankAccount{
        ↓                      ↓
    Same Class               Parent → Child #nedd inheritance 
 
+    */
+
+   //9. Abstraction:(Hide HOW Show WHAT)
+   /*
+     defination:
+     hiding all unnecessary deatail and showing only  important part part to user 
+
+     why we use
+     improve security
+     user focus on only what to do not how 
+
+     imp part :
+     -hide  implementation detail 
+     -aceve useing abstact class of interface 
+     -one of most imp piller of oops 
+     
+     ex--  car 
+          you know: break, steering ,horn 
+          you dont know: how engine works ,gearbox working
+   
+   */
+  
+    //9.1 Abstract class : 
+
+    /*Important Points:
+    ✔ Cannot create objects.
+    ✔ Can have Constructors.
+    ✔ Can have Variables.
+    ✔ Can have Abstract & Non-Abstract Methods.
+    ✔ Child class must implement abstract methods. 
 
     */
+     
+      abstract class Animals{
+        void eat(){
+            System.out.println("all animal eats");
+        };
+
+        abstract void legs(); // each subclass have this walk() function complsory but
+                             //  te kasa asel te to-to subclass tharvel
+      }
+       class Horse extends Animals{
+         void legs(){//ithe banva laglach karan parent class made abstract ne method banvli ahhe
+            System.out.println("Horse have 4 leg");
+         }
+      }
+      
+      class Chik extends Animals{
+        void legs(){
+            System.out.println("chik have 2 legs ");//compusory
+        }
+      }
+      //see main 
+
+      //10.Interface :
+      /*
+
+      defination:
+      An Interface is a blueprint of a class that contains
+      method declarations and constants.
+
+      why:
+      -To achieve  100% abstraction.
+      -support multiple inheritance .
+      -give idea about what in contract. 
+
+      imp point :
+      -decrale using interface keyword.
+      -cannot create objet.
+      -method will public and static.
+      -Implemented using implements keyword. 
+       */
+
+      interface Chess {
+        //kahli appam 2 method banvle ya pahijet subclass mde 
+            public void moves();
+            public void position();
+      }
+
+      class Queen implements Chess{
+        public void  moves(){
+            System.out.println("move all direction");
+        }
+        public void position(){
+            System.out.println("left side of king ");
+        }
+      }
+      class King implements Chess{
+        public void  moves(){
+            System.out.println("move all directionbut 0ne step");
+        }
+        public void position(){
+            System.out.println("right side of king ");
+        }
+      }
+                /*
+            ===============================================
+            ABSTRACT CLASS vs INTERFACE
+            ===============================================
+
+            | Abstract Class                     | Interface                          |
+            |------------------------------------|------------------------------------|
+            | Uses abstract keyword              | Uses interface keyword             |
+            | Inherited using extends            | Implemented using implements       |
+            | Supports Partial Abstraction       | Supports 100% Abstraction          |
+            | Can have Constructors              | Cannot have Constructors           |
+            | Can have Abstract & Normal Methods | Methods are abstract by default    |
+            | Can have Instance Variables        | Variables are public static final  |
+            | Can have any Access Modifier       | Methods are public by default      |
+            | Single Inheritance                 | Multiple Inheritance Supported     |
+            | Used when classes are related      | Used to define a common contract   |
+
+            Memory Trick:
+
+            Abstract Class  -> IS-A Relationship (extends)
+            Interface       -> CAN-DO Relationship (implements)
+
+            Example:
+
+            abstract class Animal { }      // Dog IS AN Animal
+
+            interface Flyable { }          // Bird CAN Fly
+
+            ===============================================
+            */
+
+            //11 static keyword 
+            /*
+            Definition:
+                The static keyword is used to create members
+                that belong to the class
+              
+                why :
+                save memory 
+                share to all object 
+                easily can acess 
+
+                ex--> multiple student ahet s1 s2  s1 ch nem vegla score vega 
+                                                   s2 ch name score vegla 
+                                                   but doganch same college ahhe na 
+                                                   mg college name static banvnar 
+
+                
+            */
+
+            class Employee  {
+                static String companyName="TCS";
+                String name ;
+                int  id ;
+
+                void setname(String name){
+                    this .name = name;
+                }
+
+                void display(){
+                    System.out.println(name+" "+companyName );
+                }
+            }
+            
+
+            //11.Super keyword :
+            /*
+            Definition:
+            super is a keyword that refers to the immediate parent class.
+
+            Why?
+                ✔ Access Parent class variables.
+                ✔ Call Parent class methods.
+                ✔ Call Parent class constructor.
+
+             - need inheritance only 
+             */
+             
+
+                class Phone {
+                    String brand = "Samsung";
+                }
+                class Mobile extends Phone {
+
+                    void display() {
+                        System.out.println(super.brand);//acess kela parent cha brand
+                        
+
+                    }
+                }
+
+
+
+
 
       
