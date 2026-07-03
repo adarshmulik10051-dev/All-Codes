@@ -169,7 +169,64 @@
 
      //7.6.previousElementSibling: Returns the previous sibling.
      console.log(title.previousElementSibling);
-      
+
+     
+//📌8.DOM - Creating Elements:
+     //js dom is create and insert html element dynamically 
+
+      const container = document.querySelector("#container");
+
+     //8.1 createElement:
+     let para5= document.createElement("p");
+     para5.innerText="append div tag";
+     //h1 is created but not visible until add to dom.
+     
+
+     //8.2append():
+     //add element at the end.
+     container.append(para5);
+
+     //8.3prepend():
+     //add element to start.
+     let para6 = document.createElement("p");
+     para6.innerText="prepend in div tag ";
+     container.prepend(para6);
+
+     //8.4 before()
+     let para7 =document.createElement("p");
+     para7.innerText="before div tag";
+     container.before(para7);
+
+     //8.5 after():
+     let para8 = document.createElement("p");
+     para8.innerText="after div tag";
+     container.after(para8);
+
+//📌 DOM - Removing Elements        
+    // 1. remove()
+    //Removes the selected element directly.
+    let para9 = document.createElement("p");
+    para9.innerText="added for remove()";
+    container.after(para9);
+    para9.remove();//comment  krun bg  op 
+
+    //2.removeChild():
+    //remove next child of selected tag.
+     let h5 = document.querySelector("h5");
+    h5.innerText="added for removechild()";
+    container.prepend(h5);//add kela
+    container.removeChild(h5);//remove kela
+   
+    
+
+
+
+
+
+ 
+     
+
+
      
      
 
