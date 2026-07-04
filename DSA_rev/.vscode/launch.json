@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "basicSorting",
+            "request": "launch",
+            "mainClass": "basicSorting",
+            "projectName": "DSA_rev_6bd5b85e"
+        },
+        {
+            "type": "java",
+            "name": "longisrsumsubb",
+            "request": "launch",
+            "mainClass": "longisrsumsubb",
+            "projectName": "DSA_rev_6bd5b85e"
+        },
+        {
+            "type": "java",
             "name": "OPPs",
             "request": "launch",
             "mainClass": "OPPs",
