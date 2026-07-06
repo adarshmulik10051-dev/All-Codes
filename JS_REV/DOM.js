@@ -216,7 +216,79 @@
     h5.innerText="added for removechild()";
     container.prepend(h5);//add kela
     container.removeChild(h5);//remove kela
+
+
+//📌1.dom:mouseevents :
+     //event is an action performed by useror broweser 
+     // click btn
+     //submit form
+     //press key 
    
+     //1.1 onclick event:
+
+     let btn1 = document.getElementById("btnss");
+     let title1 = document.getElementById("title1");
+
+     btn1.onclick=function(){
+          title1.innerText="button clicked";
+     }
+      //1.2 ondblclick eveent:
+
+      btn1.ondblclick=function(){
+          title1.innerText="adarsh";
+          
+      }
+
+      //1.2 onmouserover event:
+       btn1.onmouseover= function(){
+          prompt("you want to change title");
+       }
+
+       //1.3 onsubmit event:
+       let sbmbtn=document.getElementById("submit1");
+       sbmbtn.onsubmit=function(){
+          alert("from submit");
+       }
+//📌2.EventLisener:
+       //defination:an eventlistner wait for event and run code when event happen
+       //It allows multiple event listeners on the same element.
+      //It is more flexible and is the recommended modern approach in JavaScript.
+
+       let newbtn = document.getElementById("newbtn");
+      let greet= function(){
+          console.log("hello");
+       }
+        newbtn.addEventListener("click",greet);
+
+       //2.Event listners for diffrent elements:
+       let para10 =document.getElementById("para10");
+        para10.addEventListener("click",()=>{
+           para10.style.color="blue";
+        });
+
+        para10.addEventListener("dblclick",()=>{
+           para10.style.color="black";
+
+        });
+
+//📌3. this in eventListener:
+        //this refers to the element on which the event occurred
+
+     
+        let idp = document.getElementById("idp");
+     
+        let idh1=document.getElementById("idh1");
+        idp.addEventListener("click",changecolor);
+        idh1.addEventListener("click",changecolor);        
+
+          function  changecolor (){
+          this.style.color="orange";
+        };
+
+        
+
+
+
     
 
 
