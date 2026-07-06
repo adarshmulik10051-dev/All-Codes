@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SLinkList",
+            "request": "launch",
+            "mainClass": "SLinkList",
+            "projectName": "DSA_rev_6bd5b85e"
+        },
+        {
+            "type": "java",
             "name": "basicSorting",
             "request": "launch",
             "mainClass": "basicSorting",
