@@ -285,6 +285,76 @@
           this.style.color="orange";
         };
 
+//📌4. keyboard events:
+       //key press
+       let inp = document.getElementById("keypress") ;
+       inp.addEventListener("keydown",(event)=>{
+          console.log(event.key);
+          console.log(event.code);
+       });
+        //key released
+       inp.addEventListener("keyup",(e)=>{
+          console.log("key was relesed");
+       });
+
+//📌5. form events:
+       let form=document.getElementById("login");
+       form.addEventListener("submit",(event)=>{
+          event.preventDefault();//prevent to open window after subit form 
+          alert("form submit");
+       });
+
+              //change --> it wil smal smal chang  a-b-c-d
+        document.getElementById("text").addEventListener("change",(e)=>{
+          console.log("change event ");
+          console.log("fianl value:",this.value);
+       });
+
+       // input event --> it give final -initail change  
+       document.getElementById("text").addEventListener("input",(e)=>{
+          console.log(e.target.value);//abcd
+
+       });
+
+
+
+
+//📌6. extracting data from form:
+form1=document.querySelector("#form1");
+   form1.addEventListener("submit",(e)=>{
+     e.preventDefault();
+      
+     let username=document.getElementById("user");
+     let pass = document.getElementById("pass");
+
+     console.log(username.value);
+     console.log(pass.value);
+   });
+
+
+         // 19.6 Event Bubbeling: Events bubble up from child → parent → root.
+      document.querySelector("#parent").addEventListener("click", () => {
+            console.log("Parent clicked");
+      });
+      document.querySelector("#child").addEventListener("click", () => {
+            console.log("Child clicked");
+      });
+      // to stop bubelling:
+      document.querySelector("#child").addEventListener("click", (e) => {
+            e.stopPropagation();
+      });
+
+      // 19.7 Event Delegtaion: Instead of adding listeners to many child elements, you add one listener to parent.
+      document.querySelector("ul").addEventListener("click", (e) => {
+            if (e.target.tagName === "LI") {
+                  console.log("List item clicked");
+            }
+      });
+
+
+
+
+
         
 
 
