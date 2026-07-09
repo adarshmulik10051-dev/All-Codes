@@ -34,7 +34,7 @@ public class SLinkList {
      * -Head :node 1 reference(Strart point)
      * -Tail :Last Node Reference(end point)
      */
-//📌2.How to create Node :
+    // 📌2.How to create Node :
     public static class Node {
         int data;
         Node next;
@@ -59,8 +59,8 @@ public class SLinkList {
     Node tail;
     int size;
 
-//📌4.Add first in LL:
-     // add new Node in first position
+    // 📌4.Add first in LL:
+    // add new Node in first position
 
     public void addFirst(int data) {
         // step 1:create new node :
@@ -79,7 +79,7 @@ public class SLinkList {
 
     }
 
-//📌5.add new node to Last position
+    // 📌5.add new node to Last position
     public void addLast(int data) {
         // step 1: create a newNode
         Node newNode = new Node(data);
@@ -97,7 +97,7 @@ public class SLinkList {
         tail = newNode;// tailUpdate
     }
 
-//📌6.how to print LinkList
+    // 📌6.how to print LinkList
     public void print() {
         // step 1: store head in temp
         Node temp = head;
@@ -111,7 +111,7 @@ public class SLinkList {
         System.out.println("null");
     }
 
-//📌7.add the new node in middle
+    // 📌7.add the new node in middle
     public void addMiddle(int idx, int data) {
         //
         if (idx == 0) {
@@ -123,7 +123,7 @@ public class SLinkList {
         size++;
 
         // step 2.store head in temp
-        Node temp = head;   
+        Node temp = head;
         // step 3 .increase temp until on position prev idx-1:
         int i = 0;
         while (i < idx - 1) {
@@ -136,7 +136,7 @@ public class SLinkList {
         temp.next = newNode;// leftnode show to new node
     }
 
-// 📌8.remove first element in list
+    // 📌8.remove first element in list
     public int removeFirst() {
 
         // case 1: cheack if ll is empty
@@ -160,7 +160,8 @@ public class SLinkList {
         // step 4:return val
         return val;
     }
- // 📌8.how to remove lastnode
+
+    // 📌8.how to remove lastnode
     public int removelast() {
 
         // check ll is empty
@@ -193,187 +194,264 @@ public class SLinkList {
         return val;
     }
 
-//📌9.iterative search :
+    // 📌9.iterative search :
     public int iterativeSearch(int key) {
-        //step 1.store head in temp varible
+        // step 1.store head in temp varible
         Node temp = head;
         int i = 0;
-        //step 2:iterate head-->node1-->node2-->tai-->null comes  break
+        // step 2:iterate head-->node1-->node2-->tai-->null comes break
         while (temp != null) {
-            //step3. if key found return i
-           if(temp.data==key){
-            return i;
-           }
-           //step 4. key not found go to next node 
-           temp=temp.next;
-           i++;
+            // step3. if key found return i
+            if (temp.data == key) {
+                return i;
+            }
+            // step 4. key not found go to next node
+            temp = temp.next;
+            i++;
         }
-       // step5. key is not present then
+        // step5. key is not present then
         return -1;
-        //TC:o(n);
+        // TC:o(n);
 
     }
-//📌10.recursive Search :
-    public int helper(Node head , int key){//o(n)
-     //step 2:base case: the key is not in LL
-      if(head==null){
-        return -1;
-      }
-      //step 3:if key is found 
-      if(head.data==key){
-        return 0 ;
-      }
-      //step 4:check next Node as a head 
-      int idx= helper(head.next, key);
-      //step 5: idx not found return -1
-       if(idx==-1){
-        return -1 ;
-       }
-       //step 5: idx found then return 
-       return idx+1;
 
+    // 📌10.recursive Search :
+    public int helper(Node head, int key) {// o(n)
+        // step 2:base case: the key is not in LL
+        if (head == null) {
+            return -1;
         }
-            public int recursiveSearch(int key){
-            //step 1 ; create helper function 
-            return helper(head, key);
-            
-        }   
-         
+        // step 3:if key is found
+        if (head.data == key) {
+            return 0;
+        }
+        // step 4:check next Node as a head
+        int idx = helper(head.next, key);
+        // step 5: idx not found return -1
+        if (idx == -1) {
+            return -1;
+        }
+        // step 5: idx found then return
+        return idx + 1;
 
-//📌10. reverse the LL
-public void reverse(){
-   // step 1: decrale 3 varible 
-    Node prev=null;
-    Node curr =tail=head;
-    Node next;
-
-    while(curr!=null){
-        //step 2 : declare 4 step:
-        next=curr.next;//curr-->next.
-        curr.next=prev;// curr-->prev.
-        prev=curr;// curr la replce kela  prev.
-        curr=next;// next la replce kel curr.
     }
-    head=prev;
-}
-//📌11.remove  nth node from lasst\
-    public void removeFrLast(int idx){
-        //step 1 : calculate size 
-        int sz= 0 ; 
+
+    public int recursiveSearch(int key) {
+        // step 1 ; create helper function
+        return helper(head, key);
+
+    }
+
+    // 📌10. reverse the LL
+    public void reverse() {
+        // step 1: decrale 3 varible
+        Node prev = null;
+        Node curr = tail = head;
+        Node next;
+
+        while (curr != null) {
+            // step 2 : declare 4 step:
+            next = curr.next;// curr-->next.
+            curr.next = prev;// curr-->prev.
+            prev = curr;// curr la replce kela prev.
+            curr = next;// next la replce kel curr.
+        }
+        head = prev;
+    }
+
+    // 📌11.remove nth node from lasst\
+    public void removeFrLast(int idx) {
+        // step 1 : calculate size
+        int sz = 0;
         Node temp = head;
-        while(temp!=null){
-            temp=temp.next;
+        while (temp != null) {
+            temp = temp.next;
             sz++;
         }
 
-        //step 2: remove head 
-        if(idx==sz){
-            head = head.next ;
+        // step 2: remove head
+        if (idx == sz) {
+            head = head.next;
             return;
         }
 
-        //step 3: to rach idx cha prev node
-        int i = 1 ;
-        Node prev = head ;
-        while(i<(sz-idx)){//prev idx size-idx
-            prev= prev.next;
+        // step 3: to rach idx cha prev node
+        int i = 1;
+        Node prev = head;
+        while (i < (sz - idx)) {// prev idx size-idx
+            prev = prev.next;
             i++;
         }
-        //step 4 : we are on prev node 
-        //step 5:now break connection with deleting node apoint to next
-        prev.next=prev.next.next;
+        // step 4 : we are on prev node
+        // step 5:now break connection with deleting node apoint to next
+        prev.next = prev.next.next;
         return;
 
     }
-//📌11 cheak ll is  palindrome:
-  // step 1: find middle Node 
-public Node findmid(Node head){
-    Node slow=head;
-    Node fast=head;
 
-    while(fast!=null &&fast.next!=null){
-        slow=slow.next;//slow=slwo+1
-        fast = fast.next.next;//fast=fast+2
-    }
-    return slow ;//mid=slow;
-}
-public boolean isPalindrome(){
-    //corner case: ll is null and ll contain node
-    if(head==null || head.next==null){
-        return true ;
-    }
-    //step 1: find mid 
-    Node middleNode = findmid(head);
-    //step 2:reverse the 2nd half
-      Node prev = null;
-      Node curr = middleNode;
-      Node next;
+    // 📌11 cheak ll is palindrome:
+    // step 1: find middle Node
+    public Node findmid(Node head) {
+        Node slow = head;
+        Node fast = head;
 
-      while(curr!=null){
-        next=curr.next;
-        curr.next=prev;
-        prev=curr;
-        curr=next;
-      }
-       Node right=prev;//right half head 
-       Node left =head;
-    //step 3:cheak 1st half = 2nd half
-    while(right!=null){
-        if(right.data!=left.data){
-            return false;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;// slow=slwo+1
+            fast = fast.next.next;// fast=fast+2
         }
-        left=left.next;
-        right=right.next;
-    } 
-    return true;
-}
+        return slow;// mid=slow;
+    }
+
+    public boolean isPalindrome() {
+        // corner case: ll is null and ll contain node
+        if (head == null || head.next == null) {
+            return true;
+        }
+        // step 1: find mid
+        Node middleNode = findmid(head);
+        // step 2:reverse the 2nd half
+        Node prev = null;
+        Node curr = middleNode;
+        Node next;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        Node right = prev;// right half head
+        Node left = head;
+        // step 3:cheak 1st half = 2nd half
+        while (right != null) {
+            if (right.data != left.data) {
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
+    }
+
+    // 📌12.detect a loop or detect cycle in the ll
+    public boolean isCycle() {
+        // step 1: declare slow and fast at start head
+        Node slow = head;
+        Node fast = head;
+        // step 2: cheack the cyle or not
+        while (fast != null && fast.next != null) {
+            // step 3: increse slow And Fast
+            slow = slow.next;// +1
+            fast = fast.next.next;// +2
+            // step 4: when fast and slow at meet same point its cyle
+            if (slow == fast) {
+                return true;// cycle exit
+            }
+        }
+        return false;// no exist
+    }
+
+    // 📌13. remove a cycle in ll
+    public void removeCycle() {
+        // detect cycle
+        Node slow = head;
+        Node fast = head;
+        boolean cycle = false;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                cycle = true;
+                break;
+            }
+        }
+        if (cycle == false) {
+            return;
+        }
+        // 1 cycle is complet f &s is meet
+        // find meeting point and track prev
+        slow = head;
+        Node prev = null;// last node
+        while (slow != fast) {
+            prev = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+        // remove cycle
+        prev.next = null;
+    }
+
     public static void main(String args[]) {
 
         SLinkList ll = new SLinkList();
-      /*   ll.addFirst(2);
-        ll.addFirst(1);
+        ll.addFirst(2);// 2-->null
+        ll.addFirst(1);// 1-->2-->null
 
-        ll.addLast(3);
-        ll.addLast(4);
+        ll.addLast(3);// 1-->2-->3-->null
+        ll.addLast(4);// 1-->2-->3-->4-->null
 
-        ll.print();
+        ll.print();// 1-->2-->3-->4-->null
 
         ll.addMiddle(2, 8);
-        ll.print();
+        ll.print();// 1-->2-->8-->3-->4-->null
 
-        System.out.println(ll.size);
+        System.out.println(ll.size);// 5
 
         int val = ll.removeFirst();
         System.out.println("removed firstNode data is :" + val);
-        ll.print();
+        ll.print();// 2-->8-->3-->4-->null
 
         int valr = ll.removelast();
         System.out.println("removed lastNode val is:" + valr);
-        ll.print();
+        ll.print();// 2-->8-->3-->null
 
-        int idx=ll.iterativeSearch(8);
-        System.out.println("keay is on index:"+idx);
+        int idx = ll.iterativeSearch(8);
+        System.out.println("keay is on index:" + idx);
 
         int keyidx = ll.recursiveSearch(3);
-        System.out.println("keay is on index:"+keyidx);
+        System.out.println("keay is on index:" + keyidx);
 
         ll.reverse();
-        ll.print();
+        ll.print();// 3-->8-->2-->null
 
         ll.removeFrLast(2);
-        ll.print();*/
-
-        // jeva palindrome run karatay teva varch sagla comment out kara 
-        ll.addLast(1);
-        ll.addLast(2);
-        ll.addLast(2);
-        ll.addLast(1);
-
         ll.print();
-       System.out.println( ll.isPalindrome());
-    
 
+        SLinkList ll2 = new SLinkList();
+        ll2.addLast(1);
+        ll2.addLast(2);
+        ll2.addLast(2);
+        ll2.addLast(1);
 
+        ll2.print();// true
+        System.out.println("is palindrome:" + ll2.isPalindrome());
 
+        ll.head = new Node(1);
+        Node temp = new Node(2);// creat kela node
+        ll.head.next = temp;// head cha next la jodla
+        ll.head.next.next = new Node(2);
+        ll.head.next.next.next = temp;// part t2 node la jodla
+        // 1-->2-->2-->1-->null
+        System.out.println("iscycle :" + ll.isCycle());
+        ll.removeCycle();
+        System.out.println("iscycle :" + ll.isCycle());
+        ll.print();
+
+        // 📌14.java collection framwork
+        // 14.1 . how to create SlinlkList:
+        LinkedList<Integer> LL = new LinkedList<>();
+        // How to add nodes in LL:
+        LL.addLast(1);
+        LL.addLast(2);
+        LL.addFirst(3);
+        // how to print sLL
+        System.out.println(LL);
+        // how to remove node in LL:
+        LL.removeLast();
+        LL.removeFirst();
+        LL.remove(2);
+        System.out.println(LL);
+        System.out.println(LL.getLast());
+        System.out.println(LL.size());
     }
 }
