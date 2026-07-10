@@ -381,6 +381,61 @@ public class SLinkList {
         prev.next = null;
     }
 
+   public Node mergeSort(Node head){
+    if(head==null||head.next==null){
+        return head;
+    }
+    // get mid Node 
+    Node mid=getMid(head);
+    //righthead,break from mid
+    Node rightHead = mid.next;
+    mid.next=null;
+    //calling marge 
+     Node newLeft =mergeSort(head);//left part
+     Node newRight = mergeSort(rightHead);//right
+
+     return merge(newLeft , newRight);
+   }
+   public Node getMid(Node head){
+    Node slow=head;
+    Node fast=head.next;//even case  remember
+
+    while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+       }
+       return slow;
+   }
+
+   public Node merge(Node left , Node right){
+    // make temp ll with data -1
+        Node mergedLL = new Node(-1);
+        Node temp = mergedLL;
+
+        while(left!=null&&right!=null){
+            if(left.data<=right.data){
+                temp.next=left;
+                left=left.next;
+                temp=temp.next;
+            }else{
+                temp.next=right;
+                right=right.next;
+                temp=temp.next;
+            }
+        }
+        while(left!=null){
+            temp.next=left;
+            left=left.next;
+            temp=temp.next;
+        }
+        while(right!=null){
+            temp.next=right;
+            right=right.next;
+            temp = temp.next;
+        }
+        return mergedLL.next;
+   }
+
     public static void main(String args[]) {
 
         SLinkList ll = new SLinkList();
@@ -444,14 +499,33 @@ public class SLinkList {
         LL.addLast(1);
         LL.addLast(2);
         LL.addFirst(3);
+        LL.addFirst(4);
+        LL.addFirst(5);
         // how to print sLL
         System.out.println(LL);
         // how to remove node in LL:
+        LL.remove(2);
         LL.removeLast();
         LL.removeFirst();
-        LL.remove(2);
+       
         System.out.println(LL);
-        System.out.println(LL.getLast());
+      //  System.out.println(LL.getLast());
         System.out.println(LL.size());
+
+        // merge sort
+       SLinkList ll3= new SLinkList();
+
+       ll3.addFirst(1);
+       ll3.addFirst(2);
+       ll3.addFirst(3);
+       ll3.addFirst(4);
+       ll3.addFirst(5);
+       ll3.print();
+       ll3.head=ll3.mergeSort(ll3.head);
+       ll3.print();
+
+
+
+
     }
 }
