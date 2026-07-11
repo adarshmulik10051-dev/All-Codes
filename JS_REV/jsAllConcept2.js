@@ -133,23 +133,143 @@ saveToDB("adarsh",
     console.log("failed");
 })
 //this is fallback hell
-*/ 
+*/
 
 //📍5.promises:
-      //same thing with the  promise object :promise always return the pass , fail
-      
-      function saveToDB(data){
-             return new Promise ((resolve,reject)=>{//this willl return promise now 
-                 let internet_speed = Math.floor(Math.random() * 10) + 1;
-                    if (internet_speed > 4) {
-                        resolve("success:data . ");
-                    }
-                    else {
-                        reject("error:weak conneaction");
-                    }
+//same thing with the  promise object :promise always return the pass , fail
 
-             })
-      }
-      let req =saveToDB("adarsh");
-      console.log(req);
+/*function saveToDB(data) {
+    return new Promise((resolve, reject) => {//this willl return promise now 
+        let internet_speed = Math.floor(Math.random() * 10) + 1;
+        if (internet_speed > 4) {
+            resolve("success:data . ");
+        }
+        else {
+            reject("error:weak conneaction");
+        }
 
+    })
+}
+let req = saveToDB("adarsh");
+console.log(req);*/
+/*
+    //📍6. .then() .catch( ) method
+        saveToDB("Adarsh Mulik")
+        .then(()=>{
+            console.log ("saved");
+        })
+        .catch(()=>{
+            console.log("weak connection");
+        })
+*/
+// promises chaining : when we need to call function again only if data saves :
+
+/* saveToDB("adarsh")
+.then(()=>{
+    console.log("data saved ");
+    return saveToDB("hello world");
+ 
+})
+.then(()=>{
+    console.log("data 2 saved ");
+}) 
+ 
+.catch(()=>{
+    console.log("weak connection ");
+})*/
+
+//chapter 2 : 
+//async JS &API
+/*1.async  function 
+-they can alway return promises
+it allow to write code asycronus look like syncronus
+we can use  .then &.catchmethod on function   */
+
+/* async function greet() {
+     return "hello";//return promise 
+ }
+ greet()
+     .then((result) => {
+         console.log("data recived");
+         console.log(result)
+     })
+     .catch((error)=>{
+         console.log(error);
+     })*/
+
+//2. await function :
+//it can wait for asnc first work done then next work
+ /*
+ function getNum(delay) {
+    return new Promise ((resolve,reject) =>{
+        setTimeout(() => {
+        let num = Math.floor(Math.random() * 10) + 1;
+        if(num<7){
+            reject("no is <7");
+        }
+        console.log("the number is:", num);
+        resolve(num);
+    }, delay);
+    }
+)
+}
+     async function demo(){
+       try{
+         await getNum(1000);
+        await getNum(1000);
+        await getNum(1000);
+        await getNum(1000);
+        await getNum(1000);
+       }catch(err){
+        console.log(err);
+       }
+     }
+     demo();// try eeror che adhi jr reun kela promise reject zala tr pudch ky run nhii hot 
+     let a=5 ;
+     let squre = a*a;
+     console.log(squre);
+ */ 
+
+    // rejection handling :
+    // promise reject zala ki pudch kych run nhi hot mg try & catch method varuya   
+
+    /*1. API :(aplication program interfernce )
+         - send req get resp
+         -api only returns json data 
+
+    */
+            
+
+
+   /* let url ="https://catfact.ninja/fact";
+    fetch(url)
+    .then((res)=>{
+        return res.json;
+    })
+    .then((data)=>{
+        console.log ("data1:",data.fact);
+        return fetch(url);
+    })
+    .then((res)=>{
+        return res.json;
+    })
+    .then((data2=>{
+        console.log("data2:",data2.fact)
+    }))
+    .catch((err)=>{
+        console.log("ERROR:",err);
+    })*/
+
+  let url = "https://catfact.ninja/fact";
+   async function getFact(){
+     try{
+     let res= await fetch(url);
+     let data = await res.json();
+     console.log(data.fact);
+
+     }
+     catch(err){
+        console.log(err);
+     }
+   }
+ getFact();
