@@ -381,60 +381,103 @@ public class SLinkList {
         prev.next = null;
     }
 
-   public Node mergeSort(Node head){
-    if(head==null||head.next==null){
-        return head;
+    // 📌13.merge sort
+    public Node mergeSort(Node head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        // get mid Node
+        Node mid = getMid(head);
+        // righthead,break from mid
+        Node rightHead = mid.next;
+        mid.next = null;
+        // calling marge
+        Node newLeft = mergeSort(head);// left part
+        Node newRight = mergeSort(rightHead);// right
+
+        return merge(newLeft, newRight);
     }
-    // get mid Node 
-    Node mid=getMid(head);
-    //righthead,break from mid
-    Node rightHead = mid.next;
-    mid.next=null;
-    //calling marge 
-     Node newLeft =mergeSort(head);//left part
-     Node newRight = mergeSort(rightHead);//right
 
-     return merge(newLeft , newRight);
-   }
-   public Node getMid(Node head){
-    Node slow=head;
-    Node fast=head.next;//even case  remember
+    public Node getMid(Node head) {
+        Node slow = head;
+        Node fast = head.next;// even case remember
 
-    while(fast!=null && fast.next!=null){
-            slow=slow.next;
-            fast=fast.next.next;
-       }
-       return slow;
-   }
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
 
-   public Node merge(Node left , Node right){
-    // make temp ll with data -1
+    public Node merge(Node left, Node right) {
+        // make temp ll with data -1
         Node mergedLL = new Node(-1);
         Node temp = mergedLL;
 
-        while(left!=null&&right!=null){
-            if(left.data<=right.data){
-                temp.next=left;
-                left=left.next;
-                temp=temp.next;
-            }else{
-                temp.next=right;
-                right=right.next;
-                temp=temp.next;
+        while (left != null && right != null) {
+            if (left.data <= right.data) {
+                temp.next = left;
+                left = left.next;
+                temp = temp.next;
+            } else {
+                temp.next = right;
+                right = right.next;
+                temp = temp.next;
             }
         }
-        while(left!=null){
-            temp.next=left;
-            left=left.next;
-            temp=temp.next;
+        while (left != null) {
+            temp.next = left;
+            left = left.next;
+            temp = temp.next;
         }
-        while(right!=null){
-            temp.next=right;
-            right=right.next;
+        while (right != null) {
+            temp.next = right;
+            right = right.next;
             temp = temp.next;
         }
         return mergedLL.next;
-   }
+    }
+
+    // 📌14.zigzag ll
+    public void zigzag(Node head) {
+        // get mid
+        Node slow = head;
+        Node fast = head.next;// for mid is 1st half end
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Node mid = slow;
+        // breakconnection &revese 2nd half
+        Node curr = mid.next;
+        mid.next = null;
+        Node prev = null;
+        Node next;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        Node left = head;
+        Node right = prev;
+        Node nextL, nextR;
+        // merge zigzag
+        while (left != null && right != null) {
+            nextL = left.next;// store next
+            left.next = right;// join with last
+            nextR = right.next;// store right next
+            right.next = nextL;// for next step join with nextL
+
+            // update
+            left = nextL;
+            right = nextR;
+
+        }
+    }
 
     public static void main(String args[]) {
 
@@ -507,25 +550,32 @@ public class SLinkList {
         LL.remove(2);
         LL.removeLast();
         LL.removeFirst();
-       
+
         System.out.println(LL);
-      //  System.out.println(LL.getLast());
+        // System.out.println(LL.getLast());
         System.out.println(LL.size());
 
         // merge sort
-       SLinkList ll3= new SLinkList();
+        SLinkList ll3 = new SLinkList();
 
-       ll3.addFirst(1);
-       ll3.addFirst(2);
-       ll3.addFirst(3);
-       ll3.addFirst(4);
-       ll3.addFirst(5);
-       ll3.print();
-       ll3.head=ll3.mergeSort(ll3.head);
-       ll3.print();
+        ll3.addFirst(1);
+        ll3.addFirst(2);
+        ll3.addFirst(3);
+        ll3.addFirst(4);
+        ll3.addFirst(5);
+        ll3.print();
+        ll3.head = ll3.mergeSort(ll3.head);
+        ll3.print();
 
-
-
+        SLinkList ll4 = new SLinkList();
+        ll4.addLast(1);
+        ll4.addLast(2);
+        ll4.addLast(3);
+        ll4.addLast(4);
+        ll4.addLast(5);
+        ll4.print();
+        ll4.zigzag(ll4.head);
+        ll4.print();
 
     }
 }

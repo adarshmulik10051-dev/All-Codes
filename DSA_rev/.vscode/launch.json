@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "RevLinkedList",
+            "request": "launch",
+            "mainClass": "RevLinkedList",
+            "projectName": "DSA_rev_6bd5b85e"
+        },
+        {
+            "type": "java",
             "name": "SLinkList",
             "request": "launch",
             "mainClass": "SLinkList",
