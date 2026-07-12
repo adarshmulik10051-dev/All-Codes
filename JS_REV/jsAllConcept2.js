@@ -199,77 +199,128 @@ we can use  .then &.catchmethod on function   */
 
 //2. await function :
 //it can wait for asnc first work done then next work
- /*
- function getNum(delay) {
-    return new Promise ((resolve,reject) =>{
-        setTimeout(() => {
-        let num = Math.floor(Math.random() * 10) + 1;
-        if(num<7){
-            reject("no is <7");
-        }
-        console.log("the number is:", num);
-        resolve(num);
-    }, delay);
-    }
+/*
+function getNum(delay) {
+   return new Promise ((resolve,reject) =>{
+       setTimeout(() => {
+       let num = Math.floor(Math.random() * 10) + 1;
+       if(num<7){
+           reject("no is <7");
+       }
+       console.log("the number is:", num);
+       resolve(num);
+   }, delay);
+   }
 )
 }
-     async function demo(){
-       try{
-         await getNum(1000);
+    async function demo(){
+      try{
         await getNum(1000);
-        await getNum(1000);
-        await getNum(1000);
-        await getNum(1000);
-       }catch(err){
+       await getNum(1000);
+       await getNum(1000);
+       await getNum(1000);
+       await getNum(1000);
+      }catch(err){
+       console.log(err);
+      }
+    }
+    demo();// try eeror che adhi jr reun kela promise reject zala tr pudch ky run nhii hot 
+    let a=5 ;
+    let squre = a*a;
+    console.log(squre);
+*/
+
+// rejection handling :
+// promise reject zala ki pudch kych run nhi hot mg try & catch method varuya   
+
+/*1. API :(aplication program interfernce )
+     def : api is the messanger that allow differnt apppliction /to communicate &exchange data
+
+      simple:API mhanje don applications madhla madhyasthi (messenger/waiter) jo data eka application
+       kadun dusrya application paryant pohachavto.
+
+       API Endpoint
+       Endpoint = API cha specific URL jithun data milto.
+
+*/
+
+//res.json : parse the data/facts
+
+/* let url ="https://catfact.ninja/fact";
+ fetch(url)
+ .then((res)=>{
+     return res.json;
+ })
+ .then((data)=>{
+     console.log ("data1:",data.fact);
+     return fetch(url);
+ })
+ .then((res)=>{
+     return res.json;
+ })
+ .then((data2=>{
+     console.log("data2:",data2.fact)
+ }))
+ .catch((err)=>{
+     console.log("ERROR:",err);
+ })*/
+
+/*let url = "https://catfact.ninja/fact";
+async function getFact() {
+    try {
+        let res = await fetch(url);
+        let data = await res.json();
+        console.log(data.fact);
+
+    }
+    catch (err) {
         console.log(err);
-       }
-     }
-     demo();// try eeror che adhi jr reun kela promise reject zala tr pudch ky run nhii hot 
-     let a=5 ;
-     let squre = a*a;
-     console.log(squre);
- */ 
+    }
+}
+getFact();*/
 
-    // rejection handling :
-    // promise reject zala ki pudch kych run nhi hot mg try & catch method varuya   
+// axios :it use internally fetch but it impproved labrary
+//labrary used to make HTTP rqts
+//add CDN link in html file then use
 
-    /*1. API :(aplication program interfernce )
-         - send req get resp
-         -api only returns json data 
+//why :
+//do not need to pasrs data
 
-    */
-            
+/*
+let url = "https://catfact.ninja/fact";
 
+let btn = document.getElementById("fact");
+btn.addEventListener("click",async ()=>{
+   let fact= await getFact();
+});
 
-   /* let url ="https://catfact.ninja/fact";
-    fetch(url)
-    .then((res)=>{
-        return res.json;
-    })
-    .then((data)=>{
-        console.log ("data1:",data.fact);
-        return fetch(url);
-    })
-    .then((res)=>{
-        return res.json;
-    })
-    .then((data2=>{
-        console.log("data2:",data2.fact)
-    }))
-    .catch((err)=>{
+async function getFact(){
+    try {
+        let  res = await axios.get(url);
+        let p= document.getElementById("result");
+        console.log(res.data.fact);
+        p.innerText=res.data.fact;   
+    } catch (err) {
         console.log("ERROR:",err);
-    })*/
+        
+    }
 
-  let url = "https://catfact.ninja/fact";
-   async function getFact(){
-     try{
-     let res= await fetch(url);
-     let data = await res.json();
-     console.log(data.fact);
+}*/
 
-     }
-     catch(err){
-        console.log(err);
-     }
-   }
- getFact();
+//get request with new header:
+let url = "https://catfact.ninja/fact";
+async function getFact() {
+    try {
+        const config = { Headers: { Accept: "Applicationjson/" } };
+
+        let res = await axios.get(url);
+        console.log(res.data.fact);
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+
+
+
+
