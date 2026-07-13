@@ -27,5 +27,4 @@
             console.log("wrong request");
         }
         req = prompt("please enter your request");
-
     }
