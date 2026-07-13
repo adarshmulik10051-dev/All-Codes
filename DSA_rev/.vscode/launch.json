@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SatckB",
+            "request": "launch",
+            "mainClass": "SatckB",
+            "projectName": "DSA_rev_6bd5b85e"
+        },
+        {
+            "type": "java",
+            "name": "Satck",
+            "request": "launch",
+            "mainClass": "Satck",
+            "projectName": "DSA_rev_6bd5b85e"
+        },
+        {
+            "type": "java",
             "name": "DLinkedList",
             "request": "launch",
             "mainClass": "DLinkedList",
