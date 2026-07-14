@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SatckB {
+public class Stack1 {
     // stack using arraylist
     static class StackAl {
         static ArrayList<Integer> List = new ArrayList<>();

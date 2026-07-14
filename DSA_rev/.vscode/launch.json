@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "StackB",
+            "request": "launch",
+            "mainClass": "StackB",
+            "projectName": "DSA_rev_6bd5b85e"
+        },
+        {
+            "type": "java",
             "name": "SatckB",
             "request": "launch",
             "mainClass": "SatckB",
