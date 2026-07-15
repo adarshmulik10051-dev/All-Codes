@@ -54,6 +54,55 @@ public class StackB {
             System.out.println(s.pop());
         }
     }
+    // stock-span problem using stack 
+
+    public static void calSpan(int stocks[],int span []){
+
+        Stack<Integer> s =new Stack<>();//in stack we store idx of prev high
+        span[0]=1;//0 varch nehmi 1 asnar span 
+        s.push(0);
+
+        for(int i = 1 ; i < stocks.length; i++){//for itrate each day 
+            int currPrice= stocks[i];
+
+            while(!s.isEmpty()&&currPrice >=stocks[s.peek()]){
+                s.pop();//currprice peksha chota asel tr span mde nko kadun taka
+            }
+            if(s.isEmpty()){//kadun takta takta empty tr zala nhi na stack:if yes 
+                span[i]=i+1;
+            }
+            else{//if no
+                int prevhigh=s.peek();
+                span[i]=i-prevhigh;
+            }
+            s.push(i);//idx store kela stack mde 
+        }
+
+    }
+
+    //next greter element :
+    public static void nxtGreater(int arr[] ,int nxtgreterarr[]){
+     
+      Stack <Integer> s = new Stack<>();
+        for(int i  = arr.length-1; i>=0 ; i--){
+             //while
+             while (!s.isEmpty()&& arr[s.peek()]<=arr[i]) {
+                s.pop();
+             }
+            //if else
+                if(s.isEmpty()){
+                    nxtgreterarr[i]=-1;
+                }
+                else{
+                    nxtgreterarr[i]=arr[s.peek()];
+                }
+            //push
+            s.push(i);
+        }
+     
+
+    } 
+
 
     public static void main(String args[]) {
 
@@ -80,6 +129,29 @@ public class StackB {
        
         reveseStack(s1);
         printStack(s1);
+
+        
+        //stock span problem using stack 
+        int stocks[]={100,80,60,70,60,85,100};
+        int span[]=new int [stocks.length];
+        calSpan(stocks,span);
+        for(int i = 0 ; i < span.length; i++){
+            System.out.print(span[i]+" ,");
+
+        }
+        System.out.println("");
+
+
+        //next greater element 
+        int arr[]={5,9,1,0,2};
+        int  nxtgreterarr []= new int[arr.length];
+        nxtGreater(arr,nxtgreterarr);
+        for(int i = 0 ; i < nxtgreterarr.length; i++){
+            System.out.print(nxtgreterarr[i]+" ,");
+
+        }
+
+
 
     }
 }
