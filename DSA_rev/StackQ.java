@@ -101,35 +101,60 @@ public class StackQ {
     }
 
     // valid parenthesis:
-   public static boolean validParaString(String str){
-    Stack<Character> s = new Stack<>();
+    public static boolean validParaString(String str) {
+        Stack<Character> s = new Stack<>();
 
-    for(int i=0; i<str.length(); i++){
+        for (int i = 0; i < str.length(); i++) {
 
-        char ch = str.charAt(i);
+            char ch = str.charAt(i);
 
-        if(ch=='(' || ch=='[' || ch=='{'){
-            s.push(ch);
+            if (ch == '(' || ch == '[' || ch == '{') {
+                s.push(ch);
+            } else {
+
+                if (s.isEmpty()) {
+                    return false;
+                }
+
+                if ((s.peek() == '(' && ch == ')') ||
+                        (s.peek() == '{' && ch == '}') ||
+                        (s.peek() == '[' && ch == ']')) {
+                    s.pop();
+                } else {
+                    return false;
+                }
+            }
         }
-        else{
 
-            if(s.isEmpty()){
-                return false;
-            }
-
-            if((s.peek()=='(' && ch==')') ||
-               (s.peek()=='{' && ch=='}') ||
-               (s.peek()=='[' && ch==']')){
-                s.pop();
-            }
-            else{
-                return false;
-            }
-        }
+        return s.isEmpty();
     }
 
-    return s.isEmpty();
-}
+    public static boolean isDuplicate(String str) {
+        Stack<Character> s = new Stack<>();
+        for (int i = 0; i < str.length(); i++) {
+
+            char ch = str.charAt(i);
+            // closing :
+            if (ch == ')') {
+                int count = 0;
+                while (s.peek() != '(') {
+                    s.pop();
+                    count++;
+                }
+                if (count == 0) {
+                    return true;
+                } else {
+                    s.pop();// remove '('
+                }
+            }else{
+                // opning oprator oprand
+            s.push(ch);
+            }
+            
+        }
+        return false;
+
+    }
 
     public static void main(String args[]) {
 
@@ -157,7 +182,7 @@ public class StackQ {
         reveseStack(s1);
         printStack(s1);
 
-        // stock span problem using stack
+        // 4.stock span problem using stack
         int stocks[] = { 100, 80, 60, 70, 60, 85, 100 };
         int span[] = new int[stocks.length];
         calSpan(stocks, span);
@@ -167,7 +192,7 @@ public class StackQ {
         }
         System.out.println("");
 
-        // next greater element
+        // 5. next greater element
         int arr[] = { 5, 9, 1, 0, 2 };
         int nxtgreterarr[] = new int[arr.length];
         nxtGreater(arr, nxtgreterarr);
@@ -176,9 +201,14 @@ public class StackQ {
 
         }
 
-        // vaid parenthesis
-         String str1 = "{{[()]}}";
-         System.out.println(validParaString(str1));
+        // 6. vaid parenthesis
+        String str1 = "{{[()]}}";
+        System.out.println(validParaString(str1));
+
+        // 7.duplicate parenthesis
+        String str2 = "((a+b)+(a-b))";// false
+        String str3 = "(((a+b)+(a-b)))";// true
+        System.out.println(isDuplicate(str2));
 
     }
 }
