@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Queues_implementation",
+            "request": "launch",
+            "mainClass": "Queues_implementation",
+            "projectName": "DSA_rev_6bd5b85e"
+        },
+        {
+            "type": "java",
             "name": "StackQ",
             "request": "launch",
             "mainClass": "StackQ",
